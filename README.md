@@ -88,7 +88,7 @@ A comprehensive cheatsheet for Linear Algebra covering key concepts and topics.
 
 Compile the LaTeX document with:
 ```bash
-pdflatex main2.tex
+pdflatex main.tex
 ```
 
 ---
