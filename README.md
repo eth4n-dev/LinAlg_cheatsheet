@@ -12,7 +12,7 @@ A comprehensive cheatsheet for Linear Algebra covering key concepts and topics.
   - Vector Spaces
   - Bases and Dimension
   - Computing the Three Fundamental Subspaces
-  - All Solutions of $A\bv{x}=\bv{b}$
+  - All Solutions of $A\mathbf{x}=\mathbf{b}$
 5. Orthogonality and Projections
   - Definition
   - Projections
@@ -44,9 +44,9 @@ A comprehensive cheatsheet for Linear Algebra covering key concepts and topics.
    - Matrix Algebra Hacks
 11. Typical Exercises
   - Projections onto Column Spaces
-    - Find projection $\bv{p} \in C(Q)$ that minimizes $\|\bv{b} - \bv{p}\|$
+    - Find projection $\mathbf{p} \in C(Q)$ that minimizes $\|\mathbf{b} - \mathbf{p}\|$
   - Proofs with Skew-Symmetric Matrices
-    - Prove $\bv{x}^\top S \bv{x} = 0$ for all $\bv{x}$ where $S^\top = -S$
+    - Prove $\mathbf{x}^\top S \mathbf{x} = 0$ for all $\mathbf{x}$ where $S^\top = -S$
   - Least Squares Fitting
     - Minimize $\sum_{k=1}^n (f(x_k) - y_k)^2$ for $f(x) = ax^2 + b$
   - Matrix Equations from Eigenvector Conditions
@@ -74,14 +74,14 @@ A comprehensive cheatsheet for Linear Algebra covering key concepts and topics.
   - Determinant Shifts
   - Trace Tricks
   - Block Matrices
-  - Cross Product (in $\R^3$)
+  - Cross Product (in $\mathbb{R}^3$)
   - Quick Eigenvalue Checks
   - Nilpotent & Idempotent
   - Linear Systems & Solutions
 
 ## Files
 
-- `main2.tex` - Main LaTeX cheatsheet document
+- `main.tex` - Main LaTeX cheatsheet document
 - `notes_part_I.txt` - Part 1 of the script from LinAlg HS25
 - `notes_part_II.txt` - Part 2 of the script from LinAlg HS25
 ## Usage
