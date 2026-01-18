@@ -1,5 +1,8 @@
 *
 !*.tex
 !*.pdf
+!*.png
 !.gitignore
 !README.md
+!scripts/
+!scripts/**
