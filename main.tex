@@ -163,20 +163,20 @@
 \section{Vectors}
 
 \begin{defn}[D 1.4 Linear Combinations]
-    $\sum_{i=1}^n\lambda_i\bv{v}_i$ scaled combinations of $n$ vectors $\bv{v}_i$.
+    $\sum_{i=1}^n\lambda_i\bv{v}_i$ are scaled combinations of $n$ vectors $\bv{v}_i$.
 \end{defn}
 
 \twoboxeshalf{
 \begin{defn}[D 1.7 Combination Types]
     \begin{props}
         \item \textbf{Affine:} $\sum_{i=1}^n \lambda_i=1$
-        \item \textbf{Conic:} $\lambda_i\geq 0$ for $j=1,2,\dots, n$
+        \item \textbf{Conic:} $\lambda_i\geq 0$ for $i=1,2,\dots, n$
         \item \textbf{Convex:} \textit{Both} Affine and Conic.
     \end{props}
 \end{defn}
 }{
 \begin{defn}[D 1.9 Scalar/Dot Product] \\
-    $\bv{v}\cdot\bv{w}:=\sum_{i=1}^m\bv{v}_i\bv{w}_i$ \\
+    $\bv{v}\cdot\bv{w}:=\sum_{i=1}^m v_i w_i$ \\
     \textit{Just multiply component wise, add all components together. Results are in $\R$.}
 \end{defn}
 }
@@ -187,12 +187,12 @@
 \end{center}
 
 \begin{defn}[D 1.11 Euclidean norm, squared norm, unit vector]
-    $\|\bv{v}\|:=\sqrt{\bv{v}\cdot\bv{v}}=\sqrt{\bv{v}^\top\bv{v}}$, \textbf{Squared Norm:} $\|\bv{v}\|^2:=\bv{v}^\top\bv{v}$, \textbf{Unit Vector:} $\|\bv{u}\|=1=\frac{\bv{v}}{\|\bv{v}\|}=\frac{1}{\|\bv{v}\|}\bv{v}$ (for any vector $\bv{v}\neq 0 )$
+    $\|\bv{v}\|:=\sqrt{\bv{v}\cdot\bv{v}}=\sqrt{\bv{v}^\top\bv{v}}$, \textbf{Squared Norm:} $\|\bv{v}\|^2:=\bv{v}^\top\bv{v}$, \textbf{Unit Vector:} $\|\bv{u}\|=1$, computed as $\frac{\bv{v}}{\|\bv{v}\|}=\frac{1}{\|\bv{v}\|}\bv{v}$ (for any vector $\bv{v}\neq 0$)
 \end{defn}
 
 \begin{lemma}[L 1.12 Cauchy-Schwarz inequality]
     $|\bv{v}\cdot\bv{w}|\leq\|\bv{v}\|\|\bv{w}\|$ for any two vectors  $\bv{v},\bv{w}\in\R^m$. \\
-    Equality if $\bv{v}\lambda=\bv{w}$ or $\bv{w}\lambda=\bv{v}$.
+    Equality holds iff $\bv{v}=\lambda\bv{w}$ or $\bv{w}=\lambda\bv{v}$ for some scalar $\lambda\in\R$.
 \end{lemma}
 
 \begin{defn}[D 1.14 Angles]
@@ -218,7 +218,7 @@
 
     \textbf{Linearly dependent:} At least one vector is a linear combination of the others.
     
-    For matrices: $\neg\exists\bv{x}\neq0:A\bv{x}=0$ means columns are linearly independent.
+    For matrices: columns are linearly independent $\Leftrightarrow (A\bv{x}=\bv{0} \Rightarrow \bv{x}=\bv{0})$.
 \end{defn}
 
 \begin{lemma}[L 1.22 Other definitions of linear dependence]
@@ -231,7 +231,7 @@
 \end{lemma}
 
 \begin{defn}[D 1.25 Span]
-    Set of all linear combinations of a vector: \\
+    Set of all linear combinations of vectors: \\
     $\text{Span}(\bv{v}_1,\bv{v}_2,\dots,\bv{v}_n):=\left\{\sum_{j=1}^n\lambda_j\bv{v}_j:\lambda_j\in\R\text{ for all } j\in[n]\right\}$
 \end{defn}
 
@@ -241,7 +241,7 @@
 \end{lemma}
 
 \begin{note}[Construction of vectors with standard unit vectors]
-    Every vector in a vector space (D 4.1) can be written as: $\bv{u}=\sum_{i=1}^m\bv{u}_i\bv{e}_i$, where $\bv{e}$ is a standard unit vector (just one component being $1$, all others $0$).
+    Every vector in a vector space (D 4.1) can be written as: $\bv{u}=\sum_{i=1}^m u_i\bv{e}_i$, where $\bv{e}_i$ is a standard unit vector (just one component being $1$, all others $0$).
 \end{note}
 
 \begin{lemma}[L 1.28 Span of $m$ linearly independent vectors is $\R^m$]
@@ -251,22 +251,22 @@
 \section{Matrices}
 
 \begin{defn}[D 2.1 Matrix]
-    $A=[a_{ij}]_{i=1}^m,_{j=1}^n$ - $m$ rows, $n$ columns (first rows, then columns)
+    $A=[a_{ij}]$ with $i=1,\ldots,m$ and $j=1,\ldots,n$ - $m$ rows, $n$ columns (first rows, then columns)
 \end{defn}
 
 \begin{defn}[D 2.2 Matrix addition, scalar multiplication]
-    \textit{Addition:} $A+B=[a_{ij}+b_{ij}]_{i=1}^m,_{j=1}^n$, \\
-    \textit{Scalar multiplication:} $\lambda A=[\lambda a_{ij}]_{i=1}^m,_{j=1}^n$
+    \textit{Addition:} $A+B=[a_{ij}+b_{ij}]$ with $i=1,\ldots,m$ and $j=1,\ldots,n$, \\
+    \textit{Scalar multiplication:} $\lambda A=[\lambda a_{ij}]$ with $i=1,\ldots,m$ and $j=1,\ldots,n$
 \end{defn}
 
 \begin{defn}[D 2.3 Square matrices]
-    \textit{Identity matrix}: quadratic matrix, diagonals $1$, $A=AI=IA$; \\
-    \textit{Diagonal matrix:} $a_{ij}=0$ if $i\neq j$; \textit{Triangle matrix}: \textbf{lower} if $a_{ij}$, \textbf{upper} else; \\
+    \textit{Identity matrix}: square matrix, diagonals $1$, $A=AI=IA$; \\
+    \textit{Diagonal matrix:} $a_{ij}=0$ if $i\neq j$; \textit{Triangle matrix}: \textbf{lower} if $a_{ij}=0$ for $i<j$, \textbf{upper} if $a_{ij}=0$ for $i>j$; \\
     \textit{Symmetric matrix:} $a_{ij}=a_{ji}\forall i,j,A^\top=A$; \textit{Skew-symmetric matrix:} $a_{ij}=-a_{ji}\forall i,j,A=-A^\top$
 \end{defn}
 
 \begin{defn}[D 2.4 Matrix-Vector Product]
-    Rows of matrix $(m\times n)$ with vector ($n$ elements), i.e. $\bv{u}_1=\sum_{i=1}^m a_{1,i}\bv{v}_i, I\bv{x}=\bv{x}$; \textbf{Trace:} Sum of the diagonal entries of a matrix.
+    For $A\in\R^{m\times n}$ and $\bv{x}\in\R^n$, the product $A\bv{x}\in\R^m$ is computed by taking each row of $A$ and computing its dot product with $\bv{x}$. Equivalently, $A\bv{x}=\sum_{j=1}^n x_j \bv{a}_j$ where $\bv{a}_j$ are the columns of $A$. Note: $I\bv{x}=\bv{x}$. \textbf{Trace:} Sum of the diagonal entries of a matrix.
 \end{defn}
 
 \begin{obs}[O 2.5]
@@ -274,7 +274,7 @@
 \end{obs}
 
 \begin{defn}[D 2.9 Column space]
-    $\textbf{C}(A):=\{A\bv{x}:\bv{x}\in\R^n\}$, i.e.: the span (set of all linear combinations) of the column vectors. 
+    $C(A):=\{A\bv{x}:\bv{x}\in\R^n\}$, i.e.: the span (set of all linear combinations) of the column vectors. 
 \end{defn}
 
 \begin{defn}[D 2.10 Rank]
@@ -283,7 +283,7 @@
 
 
 \begin{lemma}[L 2.11 Independent columns span the column space]
-    Let $A$ be an $m\times n$ matrix with $r$ independent columns, and let $C$ be the $m\times r$ submatrix containing the independent columns. Then $\textbf{C}(A)=\textbf{C}(C)$.
+    Let $A$ be an $m\times n$ matrix with $r$ independent columns, and let $C$ be the $m\times r$ submatrix containing the independent columns. Then $C(A)=C(C)$.
 \end{lemma}
 
 \begin{defn}[D 2.12 Transpose]
@@ -302,24 +302,24 @@
 \end{obs}
 
 \begin{defn}[D 2.14 Row Space]
-    $\textbf{R}(A):=\textbf{C}(A^\top)$. With the \textit{row} rank of $A$, being the \textit{column} rank of $A^\top$.
+    $R(A):=C(A^\top)$. With the \textit{row} rank of $A$, being the \textit{column} rank of $A^\top$.
 \end{defn}
 
 \begin{defn}[D 2.17 Nullspace]
-    Nullspace contains all input vectors that lead to output vector $\bv{0}$. $\textbf{N}(A)=\{\bv{x}\in\R^ n:A\bv{x}=\bv{0}\}$.
-    It can easily be obtained from RREF by setting $\bv{b}=0$ in $R\bv{x}=\bv{b}$. If there are any free variables, choose any real (or complex|) number satisfying the condition. \\
+    Nullspace contains all input vectors that lead to output vector $\bv{0}$. $N(A)=\{\bv{x}\in\R^n:A\bv{x}=\bv{0}\}$.
+    It can easily be obtained from RREF by setting $\bv{b}=0$ in $R\bv{x}=\bv{b}$. If there are any free variables, choose any real number satisfying the condition. \\
     To find the basis, rewrite and apply this Lemma: $R\bv{x}=\bv{0}\Leftrightarrow I\cdot x(I)+Q\cdot x(Q)=\bv{0}$
     e.g. for $R=\begin{bmatrix}
         1 & 2 & 0 & 3 \\
         0 & 0 & 1 & -2
     \end{bmatrix}$ to $I\begin{bmatrix} x_1, x_3\end{bmatrix}+\begin{bmatrix}2 & 3 \\ 0 & -2\end{bmatrix}\begin{bmatrix}x_2 \\ x_4\end{bmatrix}=\bv{0}\Leftrightarrow x(I)=-Q\cdot x(Q)$.
-    We may then freely choose to the \textit{free variables} $x(Q)$. then find \textit{basis variables} $x(I)$ using the above, typically choose $e_1, \dots, e_k$ for $x(Q)$ to get the $k$th vector of basis ($k=$ number of columns of $Q$). Finally, combine the vectors into one.
+    We may then freely choose the \textit{free variables} $x(Q)$. Then find \textit{basis variables} $x(I)$ using the above, typically choose $e_1, \dots, e_k$ for $x(Q)$ to get the $k$th vector of basis ($k=$ number of columns of $Q$). Finally, combine the vectors into one.
 \end{defn}
 
 \begin{defn}[D 2.27 Kernel and Image]
     \begin{compactitem}
-        \item \textbf{Kernel:} $\textbf{N}(A)=\textbf{Ker}(T):=\{\bv{x}\in\R^n:T(\bv{x})=\bv{0}\}\subseteq\R^n$ (If $A$ is the unique $m\times n$ matrix, such that $T=T_A$)
-        \item \textbf{Image:} $\textbf{C}(A)=\textbf{Im}(T):=\{T(\bv{x}):\bv{x}\in\R^m\}\subseteq\R^m$ (If $A$ is the unique $m\times n$ matrix, such that $T=T_A$), the set of all outputs that $T$ can produce.
+        \item \textbf{Kernel:} $N(A)=\textbf{Ker}(T):=\{\bv{x}\in\R^n:T(\bv{x})=\bv{0}\}\subseteq\R^n$ (If $A$ is the unique $m\times n$ matrix, such that $T=T_A$)
+        \item \textbf{Image:} $C(A)=\textbf{Im}(T):=\{T(\bv{x}):\bv{x}\in\R^n\}\subseteq\R^m$ (If $A$ is the unique $m\times n$ matrix, such that $T=T_A$), the set of all outputs that $T$ can produce.
     \end{compactitem}
 \end{defn}
 
@@ -360,7 +360,7 @@
         0 & \textbf{1} & 2 & 1 \\
         0 & 0 & 0 & 0
     \end{bmatrix}$. Use Gauss-Jordan elimination to find it. \\
-    \textbf{RREF} is simply REF without any zero rows. (i.e. in $R_0, R$ (in RREF would be $R_0$  without the last row).
+    \textbf{RREF} is the fully reduced form where all rows with non-zero entries have a leading $1$ (pivot), and all other entries in pivot columns are $0$.
 \end{theorem}
 
 \section{Linear Equations}
@@ -407,7 +407,7 @@
 \end{lemma}
 
 \begin{defn}[D 3.13 Reduced Row Echelon Form]
-    Let $R=[r_{ij}]_{i=1}^m,_{j=1}^n$ be an $m\times n$ matrix. $R$ is in RREF, if there is some natural number $r\leq m$ and column indices $1\leq j_1\leq j_2\leq\dots\leq n$ (*the indices of the “downward step”) such that the following two conditions hold:
+    Let $R=[r_{ij}]$ with $i=1,\ldots,m$ and $j=1,\ldots,n$ be an $m\times n$ matrix. $R$ is in RREF, if there is some natural number $r\leq m$ and column indices $1\leq j_1<j_2<\dots<j_r\leq n$ (*the indices of the “downward step”) such that the following two conditions hold:
     \begin{props}
         \item For every $i\in[r]$, column $j_i$ of $R$ is the standard unit vector $\bv{e}_i$.
         \item All entries $r_{ij}$ “below the staircase” are $0$.
@@ -415,7 +415,7 @@
 \end{defn}
 
 \begin{lemma}[L 3.14]
-    A matrix $R$ in RREF ($j_1,j_2,\dots,j_r$) has independent columns $j_1, j_2, \dots, j_r$ and therefore rank $r$.
+    A matrix $R$ in RREF ($j_1,j_2,\dots,j_r$) has independent \textbf{pivot} columns $j_1, j_2, \dots, j_r$ and therefore rank $r$.
 \end{lemma}
 
 \begin{note}[Gauss-Jordan elimination]
@@ -429,7 +429,7 @@
 
     After reaching RREF, check the last row(s) $[0\dots0|c]$:
     \begin{compactitem}
-        \item \textbf{No Solution:} $0=c$ (where $c\neq0$)
+        \item \textbf{No Solution:} If $c\neq 0$ (impossible equation $0=c$)
         \item \textbf{Unique Solution:} A square identity matrix on the left, the right side are the solved variables $\bv{b}_i$.
         \item \textbf{Infinite Solutions:} Row of zeroes $[0\dots0|0]$
     \end{compactitem}
@@ -453,9 +453,9 @@
 \end{defn}
 
 \begin{defn}[D 4.8 Subspace]
-    Let $V$ be a vector space. A nonempty subset $U\subseteq V$ is a subspace of $V$ is these two axioms are true $\forall\bv{v},\bv{w}\in U$ and $\forall\lambda\bv{v}\in U$:
-    $$\bv{v}+\bv{w}\in U\quad\lambda\bv{v}\in U$$
-    They guarantee that vector addition and scalar multiplication doesn't take us outside the subspace.
+    Let $V$ be a vector space. A nonempty subset $U\subseteq V$ is a subspace of $V$ if these two axioms are true for all $\bv{v},\bv{w}\in U$ and all $\lambda\in\R$:
+    $$\bv{v}+\bv{w}\in U\quad\text{and}\quad\lambda\bv{v}\in U$$
+    They guarantee that vector addition and scalar multiplication do not take us outside the subspace.
 \end{defn}
 
 \begin{lemma}[L 4.9 Subspace always has $\bv{0}$]
@@ -463,11 +463,11 @@
 \end{lemma}
 
 \begin{lemma}[L 4.11 Column space is a subspace]
-    Let $A\in\R^{m\times n}$, then $\textbf{C}(A)=\{A\bv{x}:\bv{x}\in\R^n\}$ is a subspace of $\R^m$. Moreover, $\textbf{R}(A)=\textbf{C}(A^\top)$ is a subspace of $\R^n$.
+    Let $A\in\R^{m\times n}$, then $C(A)=\{A\bv{x}:\bv{x}\in\R^n\}$ is a subspace of $\R^m$. Moreover, $R(A)=C(A^\top)$ is a subspace of $\R^n$.
 \end{lemma}
 
 \begin{lemma}[E 4.13 Nullspace is a subspace]
-    Let $A\in\R^{m\times n}$. Then the nullspace $\textbf{N}(A)=\{\bv{x}\in\R^n:A\bv{v}=0\}$ is a subspace of $\R^n$.
+    Let $A\in\R^{m\times n}$. Then the nullspace $\textbf{N}(A)=\{\bv{x}\in\R^n:A\bv{x}=\bv{0}\}$ is a subspace of $\R^n$.
 \end{lemma}
 
 \begin{lemma}[L 4.14 Subspaces are vector spaces]
@@ -481,8 +481,8 @@
 \end{defn}
 
 \begin{lemma}[L 4.19 Independent columns is a basis]
-    Set of vectors that are linearly independent and span $B$, the subspace of $V$. For $\R^m$, the set of unit vectors is a basis. For a matrix, all linearly independent columns form a basis of the column space $\textbf{C}(A)$.
-    \textbf{Calculating:} If we have a matrix with full column / row rank, then the basis are all column / row vectors.
+    A set of linearly independent vectors that spans a subspace $V$ forms a basis of $V$. For $\R^m$, the set of standard unit vectors is a basis. For a matrix, all linearly independent columns form a basis of the column space $C(A)$.
+    \textbf{Calculating:} If a matrix has full column rank or full row rank, then the basis consists of all the linearly independent column or row vectors.
 \end{lemma}
 
 \begin{obs}[O 4.20 Non-uniqueness of basis]
@@ -490,7 +490,7 @@
 \end{obs}
 
 \begin{defn}[D 4.21 Finitely generated vector space]
-    A vector space $V$ is called finitely generated if there exists a finite subset $G\subseteq V$ with $\text{Span}(G)=V$ Then $V$ has a basis $B\subseteq G$.
+    A vector space $V$ is called finitely generated if there exists a finite subset $G\subseteq V$ with $\text{Span}(G)=V$. Then $V$ has a basis $B\subseteq G$.
 \end{defn}
 
 \begin{theorem}[T 4.22 Finitely generated VS has a basis]
@@ -498,11 +498,11 @@
 \end{theorem}
 
 \begin{lemma}[L 4.23 Steinitz exchange lemma]
-    Let $F\subseteq V$ be a finite set of linearly independent vectors, $G\subseteq V$ a finite set of vectors with $\text{Span}(G)=V$. Then: $|F|\leq|G|,\exists$ subset $E\subseteq G$ of size $|G|-|F|$ such that $\text{Span}(F\cup E)=V$.
+    Let $F\subseteq V$ be a finite set of linearly independent vectors, and $G\subseteq V$ a finite set of vectors with $\text{Span}(G)=V$. Then $|F|\leq |G|$, and there exists a subset $E\subseteq G$ of size $|G|-|F|$ such that $\text{Span}(F\cup E)=V$.
 \end{lemma}
 
 \begin{theorem}[T 4.24 All bases have the same size]
-    All bases have the same size: $B,B'\in V\Rightarrow|B|=|B'|$.
+    All bases of a vector space $V$ have the same size. If $B$ and $B'$ are both bases of $V$, then $|B|=|B'|$.
 \end{theorem}
 
 \begin{defn}[D 4.25 Dimension]
@@ -522,7 +522,7 @@
 \end{defn}
 
 \begin{theorem}[T 4.29 Basis writes vectors as unique linear combinations]
-    Let $V$ be a finitely generated vector space with basis $B=\{\bv{v}_1,\bv{v}_2,\dots,\bv{v}_m\}$. then every $\bv{v}\in V$ can be written uniquely as $\bv{v}+\sum_{j=1}^m\lambda_j\bv{v}_j$, for unique scalars $\lambda_1,\lambda_2,\dots,\lambda_m\in\R$.
+    Let $V$ be a finitely generated vector space with basis $B=\{\bv{v}_1,\bv{v}_2,\dots,\bv{v}_m\}$. Then every $\bv{v}\in V$ can be written uniquely as $\bv{v}=\sum_{j=1}^m\lambda_j\bv{v}_j$, for unique scalars $\lambda_1,\lambda_2,\dots,\lambda_m\in\R$.
 \end{theorem}
 
 \begin{lemma}[L 4.30 Less than $\text{dim}(V)$ vectors do not span $V$]
@@ -531,8 +531,8 @@
 
 \subsection{Computing the three fundamental subspaces}
 
-\begin{theorem}[T 4.31 Basis of $\textbf{C}(A)$: Pivots columns of RREF]
-    If $R$ is RREF of $A$, then all columns at pivots of $R$ form a basis of $\textbf{C}(A):\text{dim}(\textbf{C}(A))=\text{rank}(A)=r$
+\begin{theorem}[T 4.31 Basis of $C(A)$: Pivot columns of RREF]
+    If $R$ is the RREF of $A$, then the pivot columns of $R$ form a basis of $C(A)$. Moreover, $\text{dim}(C(A))=\text{rank}(A)=r$.
 \end{theorem}
 
 \begin{theorem}[T 4.32 Basis of $\textbf{R}(A)$: Non-zero rows of RREF of $A$]
@@ -544,11 +544,11 @@
 \end{theorem}
 
 \begin{corollary}[C 4.34 Rank is at most $\text{min}$ of the matrix dimensions]
-    $A$ is a $m\times  n$ matrix with rank $r\Rightarrow r\leq \text{min}(n,m)$.
+    $A$ is an $m\times n$ matrix with rank $r\Rightarrow r\leq \text{min}(n,m)$.
 \end{corollary}
 
 \begin{lemma}[L 4.35 Nullspace isomorphism]
-    $R = \text{RREF}(A)$, then $T:N(R)\rightarrow\R^{n-r}$ is an isomorphism between $N(R)$ and $\R^{n-r}\rightarrow \text{dim}(N(R))=n-r$.
+    If $R = \text{RREF}(A)$, then $T:N(R)\rightarrow\R^{n-r}$ is an isomorphism between $N(R)$ and $\R^{n-r}$. Thus $\text{dim}(N(R))=n-r$.
 \end{lemma}
 
 \begin{theorem}[T 4.36 Basis of $N(A)$: Non-pivot columns of $\text{RREF}(A)$]
@@ -558,7 +558,7 @@
 \subsection{All solutions of $A\bv{x}=\bv{b}$}
 
 \begin{defn}[D 4.37 Solution space]
-    Set of all solutions of $A\bv{x}=\bv{b}$, thus $\text{Sol}(A,\bv{b}):=\{x\bv{x}\in\R^n:A\bv{x}=\bv{b}\}\subseteq\R^n$.
+    Set of all solutions of $A\bv{x}=\bv{b}$, thus $\text{Sol}(A,\bv{b}):=\{\bv{x}\in\R^n:A\bv{x}=\bv{b}\}\subseteq\R^n$.
 \end{defn}
 
 \begin{theorem}[T 4.38 Solution space from shifting the nullspace]
@@ -566,11 +566,11 @@
 \end{theorem}
 
 \begin{theorem}[T 4.39 Dimension of a solution space]
-    Let $A\in\R^{m\times n}$ with rank $r$. If $A\bv{x}=\bv{b}$ is solvable, then: $\text{dim}(\textbf{Sol}(A,\bv{b}))=n-r$, and $\text{dim}(\textbf{Sol}(A,\bv{b})):=\text{dim}(N(A))$
+    Let $A\in\R^{m\times n}$ with rank $r$. If $A\bv{x}=\bv{b}$ is solvable, then $\text{dim}(\textbf{Sol}(A,\bv{b}))=n-r=\text{dim}(N(A))$.
 \end{theorem}
 
 \begin{theorem}[T 4.40 Systems of rank $m$ are solvable]
-    Let $A\in\R^{m\times n}$ with $\text{rank}(A)=m,A\bv{x}=\bv{b}$ is solvable for all $\bv{b}\in\R^m$.
+    Let $A\in\R^{m\times n}$ with $\text{rank}(A)=m$. Then $A\bv{x}=\bv{b}$ is solvable for all $\bv{b}\in\R^m$.
 \end{theorem}
 
 \begin{theorem}[T 4.41 Systems of rank less than $m$ are typically unsolvable]
@@ -578,10 +578,10 @@
 \end{theorem}
 
 \begin{defn}[D 4.42 Types of systems]
-    Let $A\in\R^{m\times n}$ and $\bv{b}\in\R^m$. The system $A\in\R^{m\times n}$ is called:
+    Let $A\in\R^{m\times n}$ and $\bv{b}\in\R^m$. The system $A\bv{x}=\bv{b}$ is classified as:
     \begin{compactitem}
-        \item $m=n\Rightarrow$ square ($A$ is a square matrix) — \textbf{typically solvable}.
-        \item $m<n\Rightarrow$ underdetermined ($A$ is a wide matrix) — \textbf{typically solvable}.
+        \item $m=n\Rightarrow$ square ($A$ is a square matrix) — \textbf{typically solvable if rank $r=m=n$}.
+        \item $m<n\Rightarrow$ underdetermined ($A$ is a wide matrix) — \textbf{typically solvable if rank $r=m$}.
         \item $m>n\Rightarrow$ overdetermined ($A$ is a tall matrix) — \textbf{typically unsolvable}.
     \end{compactitem}
 
@@ -597,7 +597,7 @@
 \end{note}
 
 \begin{defn}[D 5.1.1 Orthogonal subspaces]
-    Two vectors are orthogonal if their scalar product is $0:\bv{v}^\top\bv{w}=\sum_{i=1}^n \bv{v}_i\bv{w}_i=0$. Two subspaces are orthogonal if all $\bv{v}$ and $\bv{w}$ are orthogonal.
+    Two vectors are orthogonal if their scalar product is $0$: $\bv{v}^\top\bv{w}=\sum_{i=1}^n v_i w_i=0$. Two subspaces are orthogonal if all $\bv{v}$ and $\bv{w}$ are orthogonal.
 \end{defn}
 
 \begin{lemma}[L 5.1.2 Orthogonality of bases]
@@ -605,15 +605,15 @@
 \end{lemma}
 
 \begin{lemma}[L 5.1.3 Linear independence of bases of orthogonal subspaces]
-    Let $V$ and $W$  be two orthogonal subspaces of $\R^n$ with the bases $\bv{v}_1,\dots,\bv{v}_k$, $\bv{w}_1,\dots,\bv{w}_;$. The set of vectors $\{\bv{v}_1,\dots,\bv{v}_k,\bv{w}_1,\dots,\bv{w}_l\}$ is linearly independent.
+    Let $V$ and $W$  be two orthogonal subspaces of $\R^n$ with the bases $\bv{v}_1,\dots,\bv{v}_k$, $\bv{w}_1,\dots,\bv{w}_l$. The set of vectors $\{\bv{v}_1,\dots,\bv{v}_k,\bv{w}_1,\dots,\bv{w}_l\}$ is linearly independent.
 \end{lemma}
 
 \begin{corollary}[C 5.1.4 Combinations of subspaces]
-    Let $V$ and $W$ be orthogonal subspaces. Then $V+W$ is a subspace of $\R^n$, and $V\cap W=\{\bv{0}\}$ and their union is $V\cup W=\{\lambda\bv{v}+\mu\bv{w}:\lambda,\mu\in\R,\bv{v}\in V,\bv{w}\in W\}$. If $\text{dim}(V)=k$ and $\text{dim}(W)=l$, then $\text{dim}(V\cup W)=k+l\leq n$, for $V,W\subseteq \R^n$.
+    Let $V$ and $W$ be orthogonal subspaces. Then $V+W$ is a subspace of $\R^n$, and $V\cap W=\{\bv{0}\}$ and their direct sum is $V\oplus W=\{\lambda\bv{v}+\mu\bv{w}:\lambda,\mu\in\R,\bv{v}\in V,\bv{w}\in W\}$. If $\text{dim}(V)=k$ and $\text{dim}(W)=l$, then $\text{dim}(V\oplus W)=k+l\leq n$, for $V,W\subseteq \R^n$.
 \end{corollary}
 
 \begin{defn}[D 5.1.5 Orthogonal Complement]
-    Let $V$ be a subspace of $\R^n$, its \textit{orthogonal complement}: $V^\bot=\{\bv{w}\in\R^n|\bv{w}^\top\bv{v}=\bv{0},\forall\bv{v}\in V\}$
+    Let $V$ be a subspace of $\R^n$, its \textit{orthogonal complement}: $V^\bot=\{\bv{w}\in\R^n|\bv{w}^\top\bv{v}=\bv{0},\forall\bv{v}\in V\}$.
 \end{defn}
 
 \begin{theorem}[T 5.1.6 Relations between subspaces]
@@ -631,15 +631,15 @@
 \subsection{Projections}
 
 \begin{defn}[D 5.2.1 Projections]
-    Projecting a vector onto a subspace is done with $\text{proj}_S(\bv{b})=\text{argmin}_{\bv{p}\in S}\|\bv{b}-\bv{p}\|$. and yields the closest point in the new subspace $S$.
+    Projecting a vector onto a subspace is done with $\text{proj}_S(\bv{b})=\text{argmin}_{\bv{p}\in S}\|\bv{b}-\bv{p}\|$: and yields the closest point in the new subspace $S$.
 \end{defn}
 
 \begin{lemma}[L 5.2.2 One-dimensional projection formula]
-    Projection of $\bv{b}$ on $S=\{\lambda\bv{a}|\lambda\in\R\}=C(\bv{a}):\text{proj}_S(\bv{b})=\frac{\bv{a}\bv{a}^\top}{\bv{a}^\top\bv{a}}\bv{b}$, where $\bv{a}\in\R^m\backslash\{\bv{0}\}$. We note, that $(\bv{b}-\text{proj}_S(\bv{b}))\perp\text{proj}_S(\bv{b})$, i.e. the “error-vector” is perpendicular.
+    Projection of $\bv{b}$ on $S=\{\lambda\bv{a}|\lambda\in\R\}=C(\bv{a})$: $\text{proj}_S(\bv{b})=\frac{\bv{a}^\top\bv{b}}{\bv{a}^\top\bv{a}}\bv{a}$, where $\bv{a}\in\R^m\backslash\{\bv{0}\}$. We note, that $(\bv{b}-\text{proj}_S(\bv{b}))\perp\text{proj}_S(\bv{b})$, i.e. the “error-vector” is perpendicular.
 \end{lemma}
 
 \begin{lemma}[L 5.2.3 General Projection Formula]
-    Let $S$ be a subspace in $\R^m$ with basis $\bv{a}_1,\dots,\bv{a}_n$ that span $S$. Let $A$ be the matrix with column vectors $\bv{a}_1,\dots,\bv{a}_n$. The general formula: $\text{proj}_S(\bv{b})=A\hat{\bv{x}}$, where $\hat{\bv{x}}$ is $A^\top A\hat{\bv{x}}=A^\top\bv{b}$.
+    Let $S$ be a subspace in $\R^m$ with basis $\bv{a}_1,\dots,\bv{a}_n$ that span $S$. Let $A$ be the matrix with column vectors $\bv{a}_1,\dots,\bv{a}_n$. The general formula: $\text{proj}_S(\bv{b})=A\hat{\bv{x}}$, where $\hat{\bv{x}}$ satisfies $A^\top A\hat{\bv{x}}=A^\top\bv{b}$.
 \end{lemma}
 
 \begin{lemma}[L 5.2.4 Properties of $A^\top A$]
@@ -647,7 +647,7 @@
 \end{lemma}
 
 \begin{theorem}[T 5.2.5 Projection in terms of projection matrix]
-    $\text{proj}_S(\bv{b})=P\bv{b}$ with projection matrix $P=A(A^{-1}A)A^\top$. $A$ is a matrix given in a task.
+    $\text{proj}_S(\bv{b})=P\bv{b}$ with projection matrix $P=A(A^\top A)^{-1}A^\top$. $A$ is a matrix given in a task.
 \end{theorem}
 
 \section{Applications of Orthogonality and Projections}
@@ -671,7 +671,7 @@
         1 & \bv{t}_n
     \end{bmatrix}$ and a result vector $\bv{b}=\begin{bmatrix}
         \bv{b}_1 \\ \vdots \\ \bv{b}_n
-    \end{bmatrix}$ where $n$ is the total number of data points and $\bv{t}_i$ is the slope of the $i$th function, where $\bv{b}_i$ is its output. The first column is all $1$s because the constant element has no scalar. This comes from the following concept: $f(t)=\alpha_0+\alpha_1 $, so if the first data point is $(1,2)$, we get $\alpha+\alpha_1\cdot 1=2$, which will then transform into a SLE with other equations.
+    \end{bmatrix}$ where $n$ is the total number of data points and $\bv{t}_i$ is the slope of the $i$th function, where $\bv{b}_i$ is its output. The first column is all $1$s because the constant element has no scalar. This comes from the following concept: $f(t)=\alpha_0+\alpha_1 t$, so if the first data point is $(1,2)$, we get $\alpha+\alpha_1\cdot 1=2$, which will then transform into a SLE with other equations.
 \end{note}
 
 \begin{lemma}[L 6.1.2]
@@ -755,7 +755,7 @@
 \end{defn}
 
 \begin{lemma}[L 6.4.8 Unique solution of least squares with pseudoinverse]
-    For any matrix $A$ and vector $\bv{x}\in\mathcal{C}(A)$, then unique solution of the least squares problem is given by a vector $\hat{\bv{x}}\in\mathcal{C}(A)$ satisfying $A\hat{\bv{x}}=\bv{b}$. The solution is $\hat{\bv{x}}=A^\dagger\bv{b}$, with $A\hat{\bv{x}}=\bv{b}$, and in the general case $A^\dagger=R^\top C^\top=R^\top(C^\top AR^\top)^{-1}C^\top$.
+    For any matrix $A$ and vector $\bv{x}\in C(A)$, then unique solution of the least squares problem is given by a vector $\hat{\bv{x}}\in C(A)$ satisfying $A\hat{\bv{x}}=\bv{b}$. The solution is $\hat{\bv{x}}=A^\dagger\bv{b}$, with $A\hat{\bv{x}}=\bv{b}$, and in the general case $A^\dagger=R^\top C^\top=R^\top(C^\top AR^\top)^{-1}C^\top$.
 \end{lemma}
 
 \begin{obs}[P 6.4.9 TS Decomposition]
@@ -766,11 +766,11 @@
     Let $A\in\R^{m\times n}$.
     \begin{compactitem}
         \item $AA^\dagger A=A$ and $A^\dagger AA^\dagger = A^\dagger$ and $(A^\top)^\dagger =(A^\dagger)^\top$.
-        \item $AA^\dagger$ is symmetric, and the projection matrix for the projection on $\mathcal{C}(A)$.
-        \item $A^\dagger A$ is symmetric, and the projection matrix for the projection on $\mathcal{C}(A^\top)$.
+        \item $AA^\dagger$ is symmetric, and the projection matrix for the projection on $C(A)$.
+        \item $A^\dagger A$ is symmetric, and the projection matrix for the projection on $C(A^\top)$.
     \end{compactitem}
 
-    Moreover, $AA^\dagger=CRR^\top(RR^\top)^{-1}(C^\top C)^{-1}C^\top = C(C^\top C)^{-1}C^\top$, which is the projection onto $\mathcal{C}(A)$, and $(AA^\dagger)^\top=AA^\dagger$.
+    Moreover, $AA^\dagger=CRR^\top(RR^\top)^{-1}(C^\top C)^{-1}C^\top = C(C^\top C)^{-1}C^\top$, which is the projection onto $C(A)$, and $(AA^\dagger)^\top=AA^\dagger$.
 \end{theorem}
 
 \section{The Determinant}
@@ -784,7 +784,7 @@
 \begin{defn}[D 7.1.1 $2\times 2$ Determinant]
     For $A=\begin{bmatrix}
         a & b \\ c & d
-    \end{bmatrix}, \det=ad-bc$.
+    \end{bmatrix}, \det(A)=ad-bc$.
 \end{defn}
 
 \begin{lemma}[L 7.1.2 Multiplication of determinants]
@@ -798,8 +798,8 @@
 \begin{defn}[D 7.2.1 Permutation sign]
     The sign of a permutation is defined as the number of swaps of rows or columns. $\text{det(permutation matrix)}=(-1)^k\text{det(original matrix)}$, where $k$ is the number of swaps. Even number of swaps $\Rightarrow+1$, odd number $\Rightarrow-1$.
     $$\text{sgn}(\sigma)=\begin{cases}
-        1 & \textit{if } |(i,j)\in\{1,\dots,n\}\times\{1,\dots,n\} \textit{ such that } i<j \textit{ and } \bv{\sigma}(i)>\bv{\sigma}(j)| \textit{ even} \\
-        -1 & \textit{if } |(i,j)\in\{1, \dots, n\}\times\{1, \dots, n\} \textit{ such that } i<j \textit{ and } \bv{\sigma}(i) > \bv{\sigma}(j)| \textit{odd}
+        1 & \textit{if } |(i,j)\in\{1,\dots,n\}\times\{1,\dots,n\} \textit{ such that } i<j \textit{ and } \sigma(i)>\sigma(j)| \textit{ even} \\
+        -1 & \textit{if } |(i,j)\in\{1, \dots, n\}\times\{1, \dots, n\} \textit{ such that } i<j \textit{ and } \sigma(i) > \sigma(j)| \textit{odd}
     \end{cases}$$
 \end{defn}
 
@@ -811,7 +811,7 @@
 
 \begin{note}[Determinant Properties]
     \begin{compactlist}
-        \item Matrix $T\in\R^{n\times n}$ is triangular, then $\det(T)=\prod_{k=1}^n T_{kk}$, in particular $\det(I)=1$.
+        \item If matrix $T\in\R^{n\times n}$ is triangular, then $\det(T)=\prod_{k=1}^n T_{kk}$, in particular $\det(I)=1$.
         \item Matrix $A\in\R^{n\times n}, \det(A)=\det(A^\top)$
         \item Matrix $Q\in\R^{n\times n}$ is orthogonal $\Longleftrightarrow\det(Q)=1$ or $\det(Q)=-1$.
         \item Matrix $A\in\R^{n\times n}$ is invertible $\Longleftrightarrow\det(A)\neq 0$
@@ -822,21 +822,21 @@
 \end{note}
 
 \begin{obs}[P 7.2.4 Determinant of orthogonal matrices]
-    \begin{compactoptions}
-        \item Given a permutation matrix $P\in\R^{m\times n}$ corresponding to a permutation $\bv{\sigma}$, then $\det(P)=\text{sgn}(\sigma)$. We sometimes also write $\text{sgn}(P)$.
+    \begin{compactitem}
+        \item Given a permutation matrix $P\in\R^{m\times n}$ corresponding to a permutation $\sigma$, then $\det(P)=\text{sgn}(\sigma)$. We sometimes also write $\text{sgn}(P)$.
         \item Given a triangular (either upper- or lower) matrix $T\in\R^{n\times n}$ we have $\det(T)=\prod\limits_{k=1}^nT_{kk}$, in particular, $\det(I)=1$.
         \item If $Q\in\R^{n\times n}$ is an orthogonal matrix then $\det(Q)=1$ or $\det(Q)=-1$.
-    \end{compactoptions}
+    \end{compactitem}
 
-    $1=\det(I)=\det(Q^\top Q)=\det(Q^\top)\det(Q)=\det(Q)^2$, so $\det(Q)=\pmb{1}$. If the determinant is $1$, then $Q$ is a rotation matrix. If the determinant is $-1$ it's a reflection matrix.
+    $1=\det(I)=\det(Q^\top Q)=\det(Q^\top)\det(Q)=\det(Q)^2$, so $\det(Q)=\pm 1$. If the determinant is $1$, then $Q$ is a rotation matrix. If the determinant is $-1$ it's a reflection matrix.
 \end{obs}
 
 \begin{obs}[P 7.3.2 Cofactor determinant calculation]
-    Let $A\in\R^{n\times n}$, for any $1\leq i\leq n$, $\det(A)=\sum\limits_{j=1}^nA_{ij}C_{ij}$, where the co-factors are $C_{ij}=(-1)^{i+j}\det(A_{ij})$
+    Let $A\in\R^{n\times n}$, for any $1\leq i\leq n$, $\det(A)=\sum\limits_{j=1}^nA_{ij}C_{ij}$, where the cofactors are $C_{ij}=(-1)^{i+j}\det(A_{ij})$
 \end{obs}
 
 \begin{obs}[P 7.3.5 Cramer's Rule]
-    The idea here is that we solve a linear system of type $A\bv{x}=\bv{b}$, then, due to the determinant being multiplicative, we get $\det(A)\bv{x}_1=\det(\mathscr{B})$, where $\mathscr{B}$ is the matrix obtained from $A$ by replacing the first column with $\bv{b}$. So, the solution $\bv{x}\in\R^n$ for $A\bv{x}=\bv{b}$ is given by $\bv{x}_j=\frac{\det(\mathscr{B})}{\det(A)}$
+    The idea here is that we solve a linear system of type $A\bv{x}=\bv{b}$, then, due to the determinant being multiplicative, we can solve for each component. The solution $\bv{x}\in\R^n$ for $A\bv{x}=\bv{b}$ is given by $x_j=\frac{\det(A_j)}{\det(A)}$, where $A_j$ is the matrix obtained from $A$ by replacing the $j$-th column with $\bv{b}$.
 \end{obs}
 
 \begin{obs}[P 7.3.6 Swapping rows permutation matrix]
@@ -856,7 +856,7 @@
 \subsection{Complex Numbers}
 
 \begin{note}[Operations]
-    $i^2=-1$ (\textbf{NOT} $i=\sqrt{-1}$, since otherwise $1=-1$). Complex number $z_j=a_j+b_ki$. \textit{Addition, Subtraction} $(a_1\pm a_2)+(b_1\pm b_2)i$. \textit{Multiplication} $(a_1a_2-b1_b2)+(a_1b_2+a_2b_1)i$. \textit{Division} $\frac{a_1b_1+a_2b_2}{b_1^2+b_2^2}+\frac{a_2b_1-a_1b_2}{b_1^2b_2^2}i$
+    $i^2=-1$ (\textbf{NOT} $i=\sqrt{-1}$, since otherwise $1=-1$). Complex number $z_j=a_j+b_j i$. \textit{Addition, Subtraction} $(a_1\pm a_2)+(b_1\pm b_2)i$. \textit{Multiplication} $(a_1a_2-b_1b_2)+(a_1b_2+a_2b_1)i$. \textit{Division} $\frac{a_1b_1+a_2b_2}{b_1^2+b_2^2}+\frac{a_2b_1-a_1b_2}{b_1^2+b_2^2}i$
 \end{note}
 
 \begin{note}[Parts]
@@ -872,7 +872,7 @@
 \end{note}
 
 \begin{theorem}[T 8.1.2 Fundamental Theorem of Algebra]
-    Any degree $n$ non-constant $(n\geq 1)$ polynomial $P(z)=\alpha_nz^n+a_{n-1}^{n-1}+\dots+\alpha_1z+\alpha_0, (\alpha_n\neq 0)$ has a zero: there exist $\lambda\in\C$ such that $P(\lambda)=0$. \\
+    Any degree $n$ non-constant $(n\geq 1)$ polynomial $P(z)=\alpha_nz^n+a_{n-1}z^{n-1}+\dots+\alpha_1z+\alpha_0, (\alpha_n\neq 0)$ has a zero: there exist $\lambda\in\C$ such that $P(\lambda)=0$. \\
     A degree $n$ polynomial has at most $n$ distinct zeros (roots).
 \end{theorem}
 
@@ -894,11 +894,11 @@
 \end{defn}
 
 \begin{lemma}[L 8.2.3 Real Eigenvalues / Eigenvectors]
-    Let $A\in\R^{n\times n}$. Then, $\lambda\in|R$ is a real eigenvalue of $A$ if and only if $\det(A-\lambda I)=0$. A vector $\bv{v}\in\R^n\backslash\{0\}$ is an eigenvector associated with $\lambda$ if and only if $\bv{v}\in\mathcal{N}(A-\lambda I)$.
+    Let $A\in\R^{n\times n}$. Then, $\lambda\in\R$ is a real eigenvalue of $A$ if and only if $\det(A-\lambda I)=0$. A vector $\bv{v}\in\R^n\backslash\{0\}$ is an eigenvector associated with $\lambda$ if and only if $\bv{v}\in N(A-\lambda I)$.
 \end{lemma}
 
 \begin{note}
-    To find an Eigenvalue and Eigenvector of a matrix $M\in\R^{n\times n}$, simply calculate the eigenvalue first, using the zeros of the polynomial obtained from calculating $\det(M-\lambda I)$, which is obtained from \colorbox{myred}{L 8.2.3} $\det(M-\lambda I)=0$. This means, we simply need to calculate the determinant of $M-\lambda I$, which is fairly straightforward. We can then try to find the eigenvectors $\bv{v}$ such that $M\bv{v}=\lambda\bv{v}$, or in other words a non-zero element of $N(M-\lambda I)\backslash\{0\}$, i.e. the null space of $M-\lambda I$. This means we try to find a solution such that $0=(m-\lambda I)\bv{v}$, where $\bv{v}$ is not the zero vector.
+    To find an Eigenvalue and Eigenvector of a matrix $M\in\R^{n\times n}$, simply calculate the eigenvalue first, using the zeros of the polynomial obtained from calculating $\det(M-\lambda I)$, which is obtained from \colorbox{myred}{L 8.2.3} $\det(M-\lambda I)=0$. This means, we simply need to calculate the determinant of $M-\lambda I$, which is fairly straightforward. We can then try to find the eigenvectors $\bv{v}$ such that $M\bv{v}=\lambda\bv{v}$, or in other words a non-zero element of $N(M-\lambda I)\backslash\{0\}$, i.e. the null space of $M-\lambda I$. This means we try to find a solution such that $0=(M-\lambda I)\bv{v}$, where $\bv{v}$ is not the zero vector.
 \end{note}
 
 \begin{obs}[P 8.2.4 Characteristic polynomial]
@@ -910,7 +910,7 @@
 \end{theorem}
 
 \begin{obs}[P 8.2.7 Eigenvalue of orthogonal matrix]
-    If $Q\in\R^{n\times n}$ be an orthogonal matrix. If $\lambda\in\C$ is an eigenvalue of $Q$, then $|\lambda|=1$.
+    If $Q\in\R^{n\times n}$ is an orthogonal matrix. If $\lambda\in\C$ is an eigenvalue of $Q$, then $|\lambda|=1$.
 \end{obs}
 
 \begin{lemma}[L 8.2.8 Complex Eigenvalues exist on conjugate pairs of real $A$]
@@ -931,7 +931,7 @@
 \end{lemma}
 
 \begin{theorem}[T 8.3.3 Existence of basis from Eigenvalues]
-    Let $A\in\R^{n\times n}$ with $n$ distinct real eigenvectors. Then there exists a basis of $\R^n,\bv{v}_1,\dots,\bv{v}_n$ made of eigenvectors of $A$.
+    Let $A\in\R^{n\times n}$ with $n$ distinct real eigenvalues. Then there exists a basis of $\R^n,\bv{v}_1,\dots,\bv{v}_n$ made of eigenvectors of $A$.
 \end{theorem}
 
 \begin{defn}[D 8.3.4 Trace of a matrix]
@@ -973,7 +973,7 @@
 \end{defn}
 
 \begin{obs}[P 9.1.6 Eigenvalues and Eigenvectors of a projection matrix]
-    Let $P$ be the projection matrix on the subspace $U\subseteq \R^n$. Then $p$ has two eigenvalues, $0$ and $1$, and a complete set of real eigenvectors.
+    Let $P$ be the projection matrix on the subspace $U\subseteq \R^n$. Then $P$ has two eigenvalues, $0$ and $1$, and a complete set of real eigenvectors.
 \end{obs}
 
 \begin{defn}[D 9.1.7 Similar matrices]
@@ -985,7 +985,7 @@
 \end{obs}
 
 \begin{defn}[D 9.1.10 Geometric multiplicity]
-    Let $A\in\R^{n\times n}$ and let $\lambda$ be an eigenvalue of $A$. Then $\text{dim}(\mathcal{N}(A-\lambda I))$ is called the \textit{geometric multiplicity} of $\lambda$.
+    Let $A\in\R^{n\times n}$ and let $\lambda$ be an eigenvalue of $A$. Then $\text{dim}(N(A-\lambda I))$ is called the \textit{geometric multiplicity} of $\lambda$.
 \end{defn}
 
 \begin{lemma}[L 9.1.11 Complete set of real Eigenvectors]
@@ -999,19 +999,19 @@
 \end{theorem}
 
 \begin{corollary}[C 9.2.2 Eigendecomposition]
-    For any symmetric matrix $A\in\R^{n \times n}$, there exists and orthogonal matrix $V\in\R^{n\times n}$ (whose columns are eigenvectors of $A$) such that $A=V\Lambda V^\top$, where $\Lambda\in\R^{n\times n}$ is diagonal with diagonal entries equal to the eigenvalues of $A$, and $V^\top V=I$. This decomposition is called the \textit{eigendecomposition}.
+    For any symmetric matrix $A\in\R^{n \times n}$, there exists an orthogonal matrix $V\in\R^{n\times n}$ (whose columns are eigenvectors of $A$) such that $A=V\Lambda V^\top$, where $\Lambda\in\R^{n\times n}$ is diagonal with diagonal entries equal to the eigenvalues of $A$, and $V^\top V=I$. This decomposition is called the \textit{eigendecomposition}.
 \end{corollary}
 
 \begin{corollary}[C 9.2.4 Rank of real symmetric matrices]
     \begin{compactitem}
         \item If $A$ is a real symmetric matrix, then $\text{rank}(A)$  is the number of non-zero eigenvalues of $A$ (counting repetitions).
-        \item For a general $n\times n$ matrix, $\text{rank}(A)=n-\text{dim}(\mathcal{N}(A))$, so the geometric multiplicity of the eigenvalue $\lambda=0$ equals $\text{dim}(\mathcal{N}(A))$.
+        \item For a general $n\times n$ matrix, $\text{rank}(A)=n-\text{dim}(N(A))$, so the geometric multiplicity of the eigenvalue $\lambda=0$ equals $\text{dim}(N(A))$.
     \end{compactitem}
 \end{corollary}
 
 \begin{note}[R 9.2.5]
     For general $n\times n$ (non-symmetric) matrices, the rank is $n$ minus the dimension of the nullspace, so it is $n$ minus the geometric multiplicity of $\lambda=0$. Since symmetric matrices always have a complete set of eigenvalues and eigenvectors, the geometric multiplicities are always the same as algebraic multiplicities.
-    $$\dim(\bv{N}(A)+\text{rank}(A)=n$$
+    $$\dim(N(A))+\text{rank}(A)=n$$
 \end{note}
 
 \begin{obs}[P 9.2.6 Rank-One Spectral Decomposition]
@@ -1025,7 +1025,7 @@
 \end{lemma}
 
 \begin{lemma}[L 9.2.8 Symmetric matrix has real Eigenvalues]
-    A symmetric matrix $A\in\R^{n\times n}$ has only real eigenvalues $\lambda\in\C\Rightarrow \lambda\in\R$. \\
+    A symmetric matrix $A\in\R^{n\times n}$ has only real eigenvalues: $\lambda\in\C \Rightarrow \lambda\in\R$. \\
     If $A\bv{v}=\lambda\bv{v}$: $$\bar{\lambda}\|\bv{v}\|^2=\bar{\lambda}\bv{v}^*\bv{v}=(\lambda\bv{v})^*\bv{v}=(A\bv{v})^*\bv{v}=\bv{v}^*A^*\bv{v}=\bv{v}^*A\bv{v}=\bv{v}^*\lambda\bv{v}=\lambda\|\bv{v}\|^2$$
     $\implies$ every symmetric matrix $A\in\R^{n\times n}$ has a real eigenvalue $\lambda$ \textbf{(C 9.2.9)}
 \end{lemma}
@@ -1043,7 +1043,7 @@
 \end{obs}
 
 \begin{defn}[D 9.2.13 Gram Matrix]
-    Given vectors $\bv{x}_1,\dots,\bv{v}_n\in\R^n$, their \textit{Gram matrix}  is $G\in\R^{n\times n}$ defined by $G_{ij}=\bv{v}_i^\top\bv{v}_j$. We have $i.j\leq n$ because $G\in\R^{n\times n}$. If $V=[\bv{v}_1\dots\bv{v}_n]\in\R^{m\times n}$, then $G=V^\top V$. \\
+    Given vectors $\bv{v}_1,\dots,\bv{v}_n\in\R^n$, their \textit{Gram matrix}  is $G\in\R^{n\times n}$ defined by $G_{ij}=\bv{v}_i^\top\bv{v}_j$ for $i,j\in\{1,\dots,n\}$. If $V=[\bv{v}_1\dots\bv{v}_n]\in\R^{m\times n}$, then $G=V^\top V$. \\
     If $A=[\bv{a}_1\dots\bv{a}_n]\in\R^{m\times n}$, one also calls $AA^\top$ a Gram matrix (although abuse of notation). Note, that $AA^\top=\sum_{i=1}^n\bv{a}_i\bv{a}_i^\top$, which will be an $m\times m$ matrix.
 \end{defn}
 
@@ -1058,12 +1058,12 @@
 \subsection{Singular Value Decomposition}
 
 \begin{defn}[D 9.3.1 Singular Value Decomposition]
-    Let $A\in\R^{m\times n}$. There exists orthogonal matrices $U\in\R^{m\times m}$ and $V\in\R^{n\times n}$ such that $U=A=U\Sigma V^\top$, where $\Sigma\in\R^{m\times n}$  is a diagonal matrix, in the sense that $\Sigma_{ij}=0$ when $i\neq j$, and the diagonal elements are non-negative and ordered in descending order. $U^\top U=I$ and $V^\top V=I$. \\
+    Let $A\in\R^{m\times n}$. There exists orthogonal matrices $U\in\R^{m\times m}$ and $V\in\R^{n\times n}$ such that $A=U\Sigma V^\top$, where $\Sigma\in\R^{m\times n}$  is a diagonal matrix, in the sense that $\Sigma_{ij}=0$ when $i\neq j$, and the diagonal elements are non-negative and ordered in descending order. $U^\top U=I$ and $V^\top V=I$. \\
     The columns of $U$ and $V$ are called the left and right singular vectors of $A$, and the diagonal entries of $\Sigma$ are the singular values of $A$, ordered as $\sigma_1\geq\dots\geq\sigma_{\text{min}\{m,n\}}$.
 \end{defn}
 
 \begin{note}[R 9.3.2 Compact form of SVD]
-    If $A$ has rank $r$, then the SVD can be written as $A=U_r\Sigma_rV_r^\top$, where $U_r\in\R^{m\times r}$ and $V_r\in\R^{n\times r}$ have orthonormal columns, and $\Sigma_r\in\R^{r\times r}$. is a diagonal matrix with first $r$ singular values. This representation stores $r(m+n+1)$ real numbers instead of $mn$. For small $r$, this yields substantial savings and motivates low-rank approximations.
+    If $A$ has rank $r$, then the SVD can be written as $A=U_r\Sigma_rV_r^\top$, where $U_r\in\R^{m\times r}$ and $V_r\in\R^{n\times r}$ have orthonormal columns, and $\Sigma_r\in\R^{r\times r}$ is a diagonal matrix with first $r$ singular values. This representation stores $r(m+n+1)$ real numbers instead of $mn$. For small $r$, this yields substantial savings and motivates low-rank approximations.
 \end{note}
 
 
@@ -1073,7 +1073,7 @@
 
 \begin{obs}[P 9.3.4 SVD as a sum of rank-one matrices]
     Let $A\in\R^{m\times n}$ have rank $r$, with singular values $\sigma_1,\dots,\sigma_r$ and corresponding singular vectors $\bv{u}_1,\dots,\bv{u}_r$ and $\bv{v}_1,\dots,\bv{v}_r$. Then $$A=\sum\limits_{k=1}^r \sigma_k\bv{u}_k\bv{v}_k^\top$$
-    \textit{We can write any rank-$r$ matrix $A^\in\R^{m\times n}$ as a sum of $r$ rank-$1$ matrices.}
+    \textit{We can write any rank-$r$ matrix $A\in\R^{m\times n}$ as a sum of $r$ rank-$1$ matrices.}
 \end{obs}
 
 \section{Strategies}
@@ -1084,9 +1084,9 @@
     \begin{compactlist}
         \item Form the augmented matrix $[A|\bv{b}]$.
         \item Perform \textbf{Gauss-Jordan Elimination} to get to RREF.
-        \item \textbf{Consistency Check:} If any row looks like $[0\dots 0|non-zero$, there is \textbf{no solution}.
+        \item \textbf{Consistency Check:} If any row looks like $[0\dots 0|\text{non-zero}]$, there is \textbf{no solution}.
         \item Identify variables: \textbf{Pivot variables:} Columns with leading $1$s; \textbf{Free variables:} Columns without leading $1$s.
-        \item \textbf{General Solution:} $\bv{x}=\bv{x}_p=\bv{x}_h$; $\bv{x}_p:$ Set free variables to $0$, solve for pivots; $\bv{x}_h:$ Write pivot variables in terms of free variables. Extract free variables as coefficients.
+        \item \textbf{General Solution:} $\bv{x}=\bv{x}_p+\bv{x}_h$; $\bv{x}_p:$ Set free variables to $0$, solve for pivots; $\bv{x}_h:$ Write pivot variables in terms of free variables. Extract free variables as coefficients.
     \end{compactlist}
 \end{note}
 
@@ -1108,7 +1108,7 @@
 \end{note}
 
 \begin{note}[Calculating the Determinant]
-    \begin{compactoptions}
+    \begin{compactlist}
         \item \textbf{Method A} $(2\times 2):$ $\text{det}\begin{bmatrix} a & b \\ c & d\end{bmatrix}=ad-bc$.
         \item \textbf{Method B (Triangular):}  Product of diagonal entries.
         \item \textbf{Method C (General $n\times n$:} \begin{compactlist}
@@ -1116,7 +1116,7 @@
             \item \textbf{Track changes:} Row swap: multiply $\text{det}$ by $-1$; Row subtraction $(R_i-kR_j)$: $\text{det}$ does \textbf{not} change; Scalar multiplication $(kR_i)$: multiply $\text{det}$ by $k$.
         \end{compactlist}
         \item $\text{det}(A)=$ (corresponding factors) $\times\prod \bv{u}_{ii}$.
-    \end{compactoptions}
+    \end{compactlist}
 \end{note}
 
 \subsection{Fundamental Spaces}
@@ -1126,7 +1126,7 @@
     \begin{compactlist}
         \item $\text{rank}(A) = \text{rank}(A^\top)$ (row rank = column rank)
         \item $\text{rank}(A) \le \min(m, n)$ (limited by dimensions)
-        \item $\text{rank}(A) = r \Rightarrow \dim(\textbf{C}(A)) = r, \dim(\textbf{R}(A)) = r$
+        \item $\text{rank}(A) = r \Rightarrow \dim(C(A)) = r, \dim(R(A)) = r$
         \item $\text{rank}(A) = r \Rightarrow \dim(\textbf{N}(A)) = n - r$ (nullity)
         \item Full column rank: $\text{rank}(A) = n \Rightarrow$ columns are linearly independent, $\textbf{N}(A) = \{\bv{0}\}$
         \item Full row rank: $\text{rank}(A) = m \Rightarrow A\bv{x}=\bv{b}$ is solvable for all $\bv{b}$
@@ -1176,7 +1176,7 @@
     \textbf{Problem:} $A\bv{x}=\bv{b}$ has no solution ($m>n)$. Find $\hat{\bv{x}}$ that minimizes $\|A\bv{x}=\bv{b}\|^2$.
     \begin{compactlist}
         \item Calculate matrix $M=A^\top A$.
-        \item Calculate vector $d=A^\top\bv{b}$
+        \item Calculate vector $\bv{d}=A^\top\bv{b}$
         \item Solve the system $M\hat{\bv{x}}=\bv{d}$ (using Gaussian elimination)
     \end{compactlist}
     \textit{Note: If columns of $A$ are independent, $\hat{\bv{x}}=(A^\top A)^{-1} A^\top\bv{b}$.}
@@ -1204,7 +1204,7 @@
 \begin{note}[Find Eigenvalues and Eigenvectors]
     \begin{compactlist}
         \item \textbf{Eigenvalues $(\lambda)$:} Solve characteristic equation $\text{det}(A-\lambda I)=0$.
-        \item \textbf{Eigenvectors $(\bv{v})$:} For each  found $\lambda$: \begin{compactitem}
+        \item \textbf{Eigenvectors $(\bv{v})$:} For each found $\lambda$: \begin{compactitem}
             \item Form matrix $(A-\lambda I)$
             \item FInd the Nullspace basis of this matrix (solve $(A-\lambda I)\bv{v}=0$).
         \end{compactitem}
@@ -1347,7 +1347,7 @@
 \begin{note}[Tricks for $2\times 2$ Eigenvalues]
     $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$. Char Poly: $\lambda^2 - \text{Tr}(A)\lambda + \text{det}(A) = 0$.
     \begin{compactitem}
-        \item $\lambda_{1,2} = \frac{\text{Tr} \pm \sqrt{\text{Tr}^2 - 4\text{det}}}{2}$.
+        \item $\lambda_{1,2} = \frac{\text{Tr}(A) \pm \sqrt{\text{Tr}(A)^2 - 4\text{det}(A)}}{2}$.
         \item \textbf{Real Eigenvalues:} iff Discriminant $D \ge 0$.
         \item \textbf{One Real Eigenvalue:} iff $D = 0$.
         \item \textbf{Complex Eigenvalues:} iff $D < 0$ (conjugate pair $a \pm bi$).
@@ -1425,7 +1425,7 @@
 
 \subsection{Least Squares Fitting}
 
-\begin{note}[Exercise: Minimize $\sum_{k=1}^n (f(x_k) - y_k)^2$ for $f(x) = ax^2 + b$]
+\begin{note}[Exercise: Minimize $\sum_{k=1}^m (f(x_k) - y_k)^2$ for $f(x) = ax^2 + b$]
     \textbf{Given:} Data points $(x_k, y_k)$ and a model $f(x) = ax^2 + b$.
     
     \textbf{Approach:}
@@ -1611,6 +1611,10 @@
     \end{compactitem}
 \end{obs}
 
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{space_visualisation.png}
+\end{center}
+
 \vfill\null \columnbreak
 \subsection{Rapid Operations}
 
@@ -1625,7 +1629,7 @@
     \begin{compactitem}
         \item $\rank(A) = \rank(A^\top) = \rank(A^\top A) = \rank(AA^\top)$.
         \item $A$ invertible $\iff \rank(A)=n$ (square case).
-        \item $\dim N(A) = n - \rank(A)$ (Rank--Nullity).
+        \item $\dim(\mathcal{N}(A)) = n - \rank(A)$ (Rank--Nullity).
         \item Full column rank $\implies$ injective.
         \item Full row rank $\implies$ surjective.
         \item If $Au=Av$ with $u\neq v$, then $A$ has a non-trivial nullspace.
@@ -1689,18 +1693,19 @@
         \item $\lambda_1+\lambda_2=\tr(A)$.
         \item $\lambda_1\lambda_2=\det(A)$.
     \end{compactitem}
-    If all row sums equal $s$: $s$ is an eigenvalue with eigenvector $\mathbf{1}$.
+    If all row sums equal $s$: $s$ is an eigenvalue with eigenvector $\bv{1}$.
+    \begin{center}
+        \small $A\begin{bmatrix}1\\1\\\vdots\end{bmatrix} = \begin{bmatrix}s\\s\\\vdots\end{bmatrix} = s\begin{bmatrix}1\\1\\\vdots\end{bmatrix}$
+    \end{center}
     If all column sums equal $s$: $s$ is an eigenvalue of $A^\top$ (hence also of $A$).
 \end{note}
 
 \begin{note}[Nilpotent \& Idempotent]
     \begin{compactitem}
-        \item \textbf{Nilpotent:} $A^k=0$ for some $k$.
-        All eigenvalues are $0$; $\det(A)=0$; $\tr(A)=0$; $\rank(A)<n$.
+        \item \textbf{Nilpotent:} $A^k=0$ for some $k$. All eigenvalues are $0$; $\det(A)=0$; $\tr(A)=0$; $\text{rank}(A)<n$.
         \item Nilpotent matrices are not closed under addition or multiplication.
-        \item \textbf{Idempotent:} $A^2=A$.
-        Eigenvalues are only $0$ or $1$.
-        \item For idempotent $A$: $\tr(A)=\rank(A)$.
+        \item \textbf{Idempotent:} $A^2=A$. Eigenvalues are only $0$ or $1$.
+        \item For idempotent $A$: $\tr(A)=\text{rank}(A)$.
     \end{compactitem}
 \end{note}
 
@@ -1714,6 +1719,3 @@
 
 \end{multicols*}
 \end{document}
-
-
- 
